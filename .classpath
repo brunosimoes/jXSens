@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/jxsens-drivers"/>
+	<classpathentry kind="src" path="src/jxsens-viewer"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="third-party/gluegen-rt.jar"/>
+	<classpathentry kind="lib" path="third-party/jama.jar"/>
+	<classpathentry kind="lib" path="third-party/javacomm-native-windows.jar"/>
+	<classpathentry kind="lib" path="third-party/javacomm.jar"/>
+	<classpathentry kind="lib" path="third-party/jogl.jar"/>
+	<classpathentry kind="output" path="classes"/>
+</classpath>

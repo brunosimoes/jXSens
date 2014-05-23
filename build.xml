@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<project name="jXSens" basedir="." default="all">
+	<property environment="env" />
+	<property name="project.name" value="jXSens" />
+	<property name="project.version" value="1.00" />
+	<property name="build.number" value="1" />
+	<property name="deploy.dir" location="releases" />
+	<property name="source.dir" location="src" />
+	<property name="classes.dir" location="classes" />
+	<property name="lib.dir" location="3rd-party" />
+	<property name="main.class" value="org.jxsens.viewer.demos.matrix.LiveMotionDemo" />
+	<tstamp><format property="TODAY" pattern="yyyy-MM-dd HH:mm:ss" /></tstamp>
+
+	<target name="all" description="Generate JAR" depends="jar" />
+	<target name="jar" description="Generate JAR">
+		<delete file="MANIFEST.MF" />
+		<delete file="${deploy.dir}/${project.name}-${project.version}-b${build.number}.jar" />
+		<buildnumber file="build.num" />
+		<manifest file="MANIFEST.MF">
+			<attribute name="Built-By" value="${user.name}" />
+			<attribute name="Main-Class" value="${main.class}" />
+			<attribute name="Implementation-Version" value="${project.version}-b${build.number}" />
+			<attribute name="Built-Date" value="${TODAY}" />
+			<attribute name="Class-Path" value="jogl.jar gluegen-rt.jar javacomm.jar jama.jar"/>
+		</manifest>
+		<jar jarfile="${deploy.dir}/${project.name}-${project.version}-b${build.number}.jar"
+			 update="true" manifest="MANIFEST.MF">
+			<fileset dir="${classes.dir}" casesensitive="yes">
+				<exclude name="**/*.java" />
+			</fileset>
+		</jar>
+	</target>
+</project>
